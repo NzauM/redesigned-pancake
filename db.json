@@ -1,0 +1,10 @@
+{
+    "students":[
+        {"firstname": "Isaac Kuria", "class":"SDFT10"},
+        {"firstname": "Wilson Mwangi", "class":"SDFT10"},
+        {"firstname": "Javan Abbot", "class":"SDFT10"},
+        {"firstname": "Eric Ouma", "class":"SDFT10"},
+        {"firstname": "Hope Makanda", "class":"SDFT10"},
+        {"firstname": "Laureen Nzuki", "class":"SDFT10"}
+    ]
+}

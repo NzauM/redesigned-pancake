@@ -1,28 +1,33 @@
 // A function component to display a h1 saying, Students component called
 // Render a list of students together with their names and classes
 import React from "react"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import StudentForm from "./StudentForm"
 
 function Student(){
     
-    const students = [
-        {firstname: "Isaac Kuria", class:"SDFT10"},
-        {firstname: "Wilson Mwangi", class:"SDFT10"},
-        {firstname: "Javan Abbot", class:"SDFT10"},
-        {firstname: "Eric Ouma", class:"SDFT10"},
-        {firstname: "Hope Makanda", class:"SDFT10"},
-        {firstname: "Laureen Nzuki", class:"SDFT10"}
-    ]
-    const[studentsList, setStudentsList] = useState(students)
-
-    const[beststudent,setBestStudent] = useState(students[4])
-
-    console.log(beststudent) //  
+    // const students = [
+    //     {firstname: "Isaac Kuria", class:"SDFT10"},
+    //     {firstname: "Wilson Mwangi", class:"SDFT10"},
+    //     {firstname: "Javan Abbot", class:"SDFT10"},
+    //     {firstname: "Eric Ouma", class:"SDFT10"},
+    //     {firstname: "Hope Makanda", class:"SDFT10"},
+    //     {firstname: "Laureen Nzuki", class:"SDFT10"}
+    // ]
+    const[studentsList, setStudentsList] = useState([])
     
+    // useEffect(()=>{sampleFunction}) // sample function will run everytime the component renders
+    // useEffect(()=>{sampleFunction},[]) // sample function will run only once after the component renders
+    // useEffect(()=>{sampleFunction},[studentsList]) //sample function will run everytime studentsList changes
 
-    // stateSetterFunction("New Value of State Variable") 
-    // stateSetterFunction((statevariable)=>"New Value of State Variable")
+    useEffect(()=>{
+        fetch("http://localhost:3000/students").then(resp=>resp.json()).then(data=>{
+            // set received data to state
+            console.log(data)
+            setStudentsList(studentsList=>data)
+        })
+    },[])
+
 
     let studentDisplay = studentsList.map(studentDisplayFunction)
 
@@ -39,8 +44,8 @@ function Student(){
     //     let newStudent = {firstname: "Mercy Nzau", class:"SDFT10"}
     //     let newStudnt2 = {firstname: "Avant Muchiri", class:"SDFT10"}
     //     // setStudentsList()
-    //     setStudentsList((studentsList)=>[...studentsList,newStudent])
-    //     setStudentsList((studentsList)=>[...studentsList,newStudnt2])
+        // setStudentsList((studentsList)=>[...studentsList,newStudent])
+        // setStudentsList((studentsList)=>[...studentsList,newStudnt2])
     //     console.log(studentsList)
     //     // students.push(newStudent)
     //     // console.log(students);
