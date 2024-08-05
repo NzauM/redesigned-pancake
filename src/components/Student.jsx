@@ -2,6 +2,7 @@
 // Render a list of students together with their names and classes
 import React from "react"
 import { useState } from "react"
+import StudentForm from "./StudentForm"
 
 function Student(){
     
@@ -15,6 +16,9 @@ function Student(){
     ]
     const[studentsList, setStudentsList] = useState(students)
 
+    const[beststudent,setBestStudent] = useState(students[4])
+
+    console.log(beststudent) //  
     
 
     // stateSetterFunction("New Value of State Variable") 
@@ -30,21 +34,29 @@ function Student(){
             </div>
         )
     }
-    function handleAddStudent(){
-        // add a new student to the studentlist
-        let newStudent = {firstname: "Mercy Nzau", class:"SDFT10"}
-        let newStudnt2 = {firstname: "Avant Muchiri", class:"SDFT10"}
-        // setStudentsList()
-        setStudentsList((studentsList)=>[...studentsList,newStudent])
-        setStudentsList((studentsList)=>[...studentsList,newStudnt2])
-        console.log(studentsList)
-        // students.push(newStudent)
-        // console.log(students);
+    // function handleAddStudent(){
+    //     // add a new student to the studentlist
+    //     let newStudent = {firstname: "Mercy Nzau", class:"SDFT10"}
+    //     let newStudnt2 = {firstname: "Avant Muchiri", class:"SDFT10"}
+    //     // setStudentsList()
+    //     setStudentsList((studentsList)=>[...studentsList,newStudent])
+    //     setStudentsList((studentsList)=>[...studentsList,newStudnt2])
+    //     console.log(studentsList)
+    //     // students.push(newStudent)
+    //     // console.log(students);
+    // }
+
+    function dataReceiver(datatobereceived){
+        console.log(datatobereceived)
+        setStudentsList((studentsList)=>[...studentsList,datatobereceived])        
     }
+    
     return(
         <>
         <h1>Students component called</h1>
-        <button onClick={handleAddStudent}>Add Student</button>
+        <h1>Add Student Form</h1>
+        <StudentForm functionprop={dataReceiver}/>
+        {/* <button onClick={handleAddStudent}>Add Student</button> */}
         {studentDisplay}
         </>
         

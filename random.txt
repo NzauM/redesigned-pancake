@@ -1,0 +1,10 @@
+Creating a Student Form Component, to add new students // Controlled Form
+Display the newly added students to our Student Component // Inverse Data Flow
+Save students in a db.json, and fetch them using an API //data fetching in react + UseEffect
+
+
+Action Up:
+
+We start by defining a function in the parent Component, childdatareceiver function
+pass this function as a prop when calling the child
+now, you can invoke the function from the child, and pass any data as an argument 
