@@ -1,8 +1,10 @@
 import React,{useState} from "react";
+import { useNavigate } from "react-router-dom";
 
 function StudentForm({functionprop}){
     const[studentName, setStudentName] = useState("")
     const[studentClass, setStudentClass] = useState("")
+    const mynavigator = useNavigate()
 
     function handleNameInput(e){
         setStudentName((studentName)=> studentName= e.target.value)
@@ -20,7 +22,9 @@ function StudentForm({functionprop}){
         // find a way to pass this new students object to our parent component.
         const studentsObj = {firstname:studentName, class:studentClass}
         console.log(studentsObj)
-        functionprop(studentsObj)
+        // functionprop(studentsObj)
+        // take my users back to /students
+        mynavigator('/')
     }
     
     return(

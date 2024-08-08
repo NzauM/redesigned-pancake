@@ -3,6 +3,8 @@
 import React from "react"
 import { useState, useEffect } from "react"
 import StudentForm from "./StudentForm"
+import Nav from "./Nav"
+import { Link } from "react-router-dom"
 
 function Student(){
     
@@ -33,10 +35,13 @@ function Student(){
 
     function studentDisplayFunction(student,currind,originalArray){
         return(
-            <div key={currind}>
-                <h1>Student Name: {student.firstname}</h1>
-                <p>Student's Class: {student.class}</p>
-            </div>
+            <tr key={currind}>
+                <td>{student.firstname}</td>
+                <td>{student.class}</td>
+                <td> <Link to={`/viewstudent/${student.id}`}><button>More Details</button></Link></td>
+                {/* <h1>Student Name: {student.firstname}</h1>
+                <p>Student's Class: {student.class}</p> */}
+            </tr>
         )
     }
     // function handleAddStudent(){
@@ -58,11 +63,22 @@ function Student(){
     
     return(
         <>
+        <Nav/>
         <h1>Students component called</h1>
         <h1>Add Student Form</h1>
-        <StudentForm functionprop={dataReceiver}/>
+        <table>
+            <thead>
+                <th>Name</th>
+                <th>Class</th>
+                <th>Action</th>
+            </thead>
+            <tbody>
+            {studentDisplay}
+            </tbody>
+        </table>
+        {/* <StudentForm functionprop={dataReceiver}/> */}
         {/* <button onClick={handleAddStudent}>Add Student</button> */}
-        {studentDisplay}
+        
         </>
         
 

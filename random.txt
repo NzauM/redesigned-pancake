@@ -8,3 +8,13 @@ Action Up:
 We start by defining a function in the parent Component, childdatareceiver function
 pass this function as a prop when calling the child
 now, you can invoke the function from the child, and pass any data as an argument 
+
+
+Learning Goals:
+Creating Routes Recap, Nested Routes, Programmatic Navigation
+
+1. Click on More Details to Open a New page with students details // recap creating Routes
+
+2. Add an Edit Button in the student details page which should render the Edit Student Form in the same page. // Nested Routes
+
+3. After Editting/Deleting a student, the user should be taken back to the students list page. //Programmatic Navigation

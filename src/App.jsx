@@ -20,9 +20,10 @@ function App() {
       <li>Item2</li>
       <li>Item3</li>
     </ul>
-    <Nav button1text="Another Button" button2text="Another Button2" button3text="ANother Button 3"/>
-    <Nav button2text="Bubu" button3text="Student" button4text="Curiosity"/>
-    <Student/>
+    {/* <Student name={name}/> */}
+    {/* <Nav button1text="Another Button" button2text="Another Button2" button3text="ANother Button 3"/>
+    <Nav button2text="Bubu" button3text="Student" button4text="Curiosity"/> */}
+    {/* <Student/> */}
     </>
   )
 }

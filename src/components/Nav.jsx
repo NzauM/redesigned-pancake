@@ -1,4 +1,5 @@
-function Nav({button1text,button2text,button3text}){
+import { NavLink, Link } from "react-router-dom";
+function Nav({button1text="Default",button2text="Default",button3text="Default"}){
   // console.log(props)
   // let extrabutton;
   // if (props.button4text){
@@ -10,10 +11,15 @@ function Nav({button1text,button2text,button3text}){
   }
     return(
     <nav>
-      <button onClick={handleButton1}>{button1text}</button>
+        <button><NavLink to={'/'}>Home</NavLink></button>
+        <NavLink to={'/students'}>View Students</NavLink>
+        <NavLink to={'/addstudent'}>Add Students</NavLink>
+        <h1>Now This is a Link Component <Link to={'/addstudent'}>This One HEre</Link> </h1>
+      {/* <button onClick={handleButton1}>{button1text}</button>
       <button>{button2text}</button>
       <button>{button3text}</button>
-      <h1>NAv Heading</h1>
+      <h1>NAv Heading</h1> */}
+      
       {/* <button>{props.button4text}</button> */}
       {/* {extrabutton} */}
      
